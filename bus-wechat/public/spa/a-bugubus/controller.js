@@ -1192,7 +1192,8 @@ app.controller('LoginController',function($rootScope,$scope,$state,$stateParams,
             //获得一个format格式的时间字符对象
             $scope.dateObj = getMonthDate($scope.orderInfo.year, $scope.orderInfo.month);
             $scope.totalMoney = data.busSchedule.monthprice;
-            $scope.totalDays = getMonthDate($scope.orderInfo.year, $scope.orderInfo.month+1).workDays;
+            $scope.nextMonthObj = getMonthDate($scope.orderInfo.year, $scope.orderInfo.month+1);
+            $scope.totalDays =  $scope.nextMonthObj.workDays;
             $scope.remainDays = $scope.dateObj.remainDays;
             $scope.remainMoney = Math.floor(($scope.totalMoney / $scope.dateObj.workDays) * $scope.dateObj.remainDays);
             $scope.status=true;
@@ -1206,15 +1207,28 @@ app.controller('LoginController',function($rootScope,$scope,$state,$stateParams,
             }
         })
         $scope.submitOrder  = function(){
-            $myHttpService.post("api/busline/buyMonthTicket",{
-                userid:'2017050217325695014834',
-                openid:'oMv4Svw0Ko3bz284wc1rjj73s4IE',
+            var reqParam = {
+                userid:$rootScope.session.user.userInfo.userid,
+                openid:$rootScope.session.user.openId,
                 bsid:$stateParams.bsid,
                 // timestr: $filter('date')($scope.orderInfo.startDate,'yyyy-MM')
-                timestr: $scope.dateObj.current + '&' + $scope.dateObj.endDate,
-                workDays: $scope.dateObj.remainDays + '&' + $scope.dateObj.workDays,
-                monthstr: $scope.dateObj.monthstr
-            },function(data){
+                // timestr: $scope.dateObj.current + '&' + $scope.dateObj.endDate,
+                // workDays: $scope.dateObj.remainDays + '&' + $scope.dateObj.workDays,
+                // monthstr: $scope.dateObj.monthstr
+            }
+            if($scope.orderInfo.monthTicketType == 1){
+                //本月
+                reqParam.timestr = $scope.dateObj.current + '&' + $scope.dateObj.endDate,
+                reqParam.workDays = $scope.dateObj.remainDays + '&' + $scope.dateObj.workDays,
+                reqParam.monthstr = $scope.dateObj.monthstr
+            }else{
+                //次月
+                reqParam.timestr = $scope.nextMonthObj.startDate + '&' + $scope.nextMonthObj.endDate,
+                reqParam.workDays = $scope.nextMonthObj.workDays + '&' + $scope.nextMonthObj.workDays,
+                reqParam.monthstr = $scope.nextMonthObj.monthstr
+            }
+            console.log(reqParam);
+            $myHttpService.post("api/busline/buyMonthTicket",reqParam,function(data){
                 function onBridgeReady(){
                     WeixinJSBridge.invoke(
                         'getBrandWCPayRequest',

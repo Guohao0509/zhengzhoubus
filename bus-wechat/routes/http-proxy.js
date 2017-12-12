@@ -8,7 +8,7 @@ var httpProxy = function(url,data,success,error){
     var ng=require('nodegrass');
   
     //定义主机
-    var host = "http://192.168.5.223:8080/bus/wechat"+url;
+    var host = "http://localhost:8080/bus/wechat"+url;
     var header ={
         'Content-Type': 'application/x-www-form-urlencoded',
     };
