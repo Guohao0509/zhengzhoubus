@@ -1198,12 +1198,18 @@ app.controller('LoginController',function($rootScope,$scope,$state,$stateParams,
             $scope.remainMoney = Math.floor(($scope.totalMoney / $scope.dateObj.workDays) * $scope.dateObj.remainDays);
             $scope.status=true;
             $scope.orderInfo.total =  $scope.remainMoney;
+            $scope.ticketYear = $scope.dateObj.monthstr.split('-')[0];
+            $scope.ticketMonth = $scope.dateObj.monthstr.split('-')[1];
         });
         $scope.$watch('orderInfo.monthTicketType',function(val){
             if(val == '1'){
                 $scope.orderInfo.total =  $scope.remainMoney;
+                $scope.ticketYear = $scope.dateObj.monthstr.split('-')[0];
+                $scope.ticketMonth = $scope.dateObj.monthstr.split('-')[1];
             }else {
                 $scope.orderInfo.total =  $scope.totalMoney;
+                $scope.ticketYear = $scope.nextMonthObj.monthstr.split('-')[0];
+                $scope.ticketMonth = $scope.nextMonthObj.monthstr.split('-')[1];
             }
         })
         $scope.submitOrder  = function(){
