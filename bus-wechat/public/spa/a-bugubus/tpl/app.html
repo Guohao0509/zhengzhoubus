@@ -1,0 +1,13 @@
+<ui-view></ui-view>
+<div class="tabs tabs-color-balanced">
+    <a ng-click="changePage('/app/buy')" ng-class="{active:routerInclude('app.buy')}" class="tab-item">
+        购票
+    </a>
+    <a ng-click="changePage('/app/ticket/month')" ng-class="{active:routerInclude('app.ticket')}" class="tab-item">
+        乘车
+    </a>
+    <a ng-click="changePage('/app/i/home')" ng-class="{active:routerInclude('app.i')}"  class="tab-item">
+        我的
+    </a>
+</div>
+

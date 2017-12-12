@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/index-static.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/a-bugubus" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/a-bugubus/controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/a-bugubus/tpl/bus_href_success.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/public/spa/a-bugubus/tpl/schedule-detail.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/a-bugubus/tpl/schedule-detail2.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/a-bugubus/tpl/schedule-opened.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/images/code.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/js/ui-load.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/lib" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/lib/ion-datetime-picker-master" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/public/spa/lib/ion-datetime-picker-master/release/ion-datetime-picker.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/lib/js-barcode/JsBarcode.all.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/public/spa/lib/js-barcode/JsBarcode.code128.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/public/spa/lib/layer_mobile" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/public/spa/lib/layer_mobile/need/layer.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/spa/lib/timepicer" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/routes/api-filter.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/routes/auth-filter.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/routes/http-proxy.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/routes/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/views/index.ejs" charset="UTF-8" />
+  </component>
+</project>

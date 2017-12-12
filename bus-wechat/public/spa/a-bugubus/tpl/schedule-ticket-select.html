@@ -1,0 +1,38 @@
+<div ng-controller="ScheduleTicketSelect">
+    <ion-content has-bouncing="true" class="b-gray has-footer">
+        <div class="list list-ticket padding-horizontal padding-vertical">
+            <div class=" list-ticket-item row padding pr0" ng-class="{active:item.active}" ng-click="active(item)" ng-repeat="item in ticketList">
+                <div class="col-66 ticket-info">
+                    <div class="padding-right">
+                        <span class="f18">{{item.month}}月<span ng-show="item.currentMonth">（当月）</span></span><div class="item-note">有座</div>
+                    </div>
+                    <div class=" padding-top padding-right" ng-show="currentMonth">
+                        <div class="padding-horizontal tips padding-vertical">
+                            <p>下个工作日可乘坐</p>
+                            <p>有效期至本月月底</p>
+                        </div>
+                    </div>
+                    <div class=" padding-top padding-right" ng-show="!currentMonth">
+                        <div class="padding-horizontal tips padding-vertical">
+                            <p>22个工作日可乘坐</p>
+                            <p>有效期至{{item.month}}月月底</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-33 col-center">
+                    <div class="text-center f18 price">{{item.price}}元</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="row">
+            <div class="col-66 col-center">
+                <span class="gray">总金额：￥ <span class="balanced f18 vertical-middle">{{allTicketMoney}} </span>元</span>
+            </div>
+            <div class="col-33">
+                <button class="button button-middle button-block button-positive button-balanced" ui-sref="ticket.pay">提交订单</button>
+            </div>
+        </div>
+    </div>
+</div>

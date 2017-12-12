@@ -1,0 +1,35 @@
+<div ng-controller="PayOrderListController">
+    <div class="bar bar-header bar-light">
+        <h1 class="title">支付订单列表</h1>
+    </div>
+    <ion-content has-bouncing="true" class="b-gray has-header padding-top">
+        <ion-refresher class="gray"
+                       on-refresh="refresh()"
+                       pulling-text="下拉刷新……">
+        </ion-refresher>
+        <ul class="list">
+            <li ng-show="orderList.length==0">
+                <div class="text-center">您还没有支付过的订单。</div>
+            </li>
+            <li ng-repeat="item in orderList" class=" border-top padding-vertical  padding-horizontal b-white list-item schedule-item">
+                <div class="lh24">支付时间：{{item.paytime|date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                <div class="lh24">订单编号：{{item.rechagorderid}}</div>
+                <div class="lh24">{{item.rechagdesc}}</div>
+
+                <div class="row row-no-padding">
+                    <div class="col-60">
+                        <div class="lh24">
+                            <button class="button button-small item-button button-balanced">支付完成</button>
+                        </div>
+                    </div>
+                    <div class="col-40 text-right">
+                        <div class="lh24">
+                            付款<span class="f12 assertive">￥</span><span class="assertive f18">{{item.totalfee}}</span>元
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <button class="button button-middle button-block  button-light" ng-click="getMoreData()" ng-show="showMoreBtn">点击加载更多</button>
+    </ion-content>
+</div>

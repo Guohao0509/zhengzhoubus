@@ -1,0 +1,12 @@
+{
+  "total":97,
+  "pages":10,
+  "list":[
+    {"id":1,"name":"java","status":1,"description":"测试专用1","sex":"男"},
+    {"id":2,"name":"java","status":0,"description":"测试专用2","sex":"女"},
+    {"id":3,"name":"java","status":1,"description":"测试专用3","sex":"女"},
+    {"id":4,"name":"java","status":1,"description":"测试专用4","sex":"女"},
+    {"id":5,"name":"java","status":0,"description":"测试专用5","sex":"男"},
+    {"id":6,"name":"java","status":0,"description":"测试专用6","sex":"女"}
+  ]
+}

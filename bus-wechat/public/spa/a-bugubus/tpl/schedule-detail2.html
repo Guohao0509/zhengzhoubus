@@ -1,0 +1,95 @@
+<ui-view ng-controller="ScheduleDetailController2">
+    <div class="tabs-striped tabs-top tabs-color-balanced tabs-color-light">
+        <div class="tabs">
+            <a class="tab-item" ui-sref="schedule.detail({bsid:busSchedule.bsid,mode:mode})">
+                出发
+            </a>
+            <a class="tab-item active">
+                返回
+            </a>
+        </div>
+    </div>
+    <ion-content scroll="false" class="padding-top">
+        <div  class="schedule-detail schedule-item f16"  style="position: absolute;top: 60px;left:10px;right:10px;z-index: 2;padding:10px 0px;" class="b-white">
+            <div class="row row-no-padding padding-horizontal">
+                <div class="lh30">
+                    <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                    <!--  <span class="f16 departTime pr5" ng-bind="busSchedule.departtime"></span>- -->
+                    <span class="f16 departTime pr5" ng-bind="busSchedule.backDeparttime"></span>
+                    <div class="marker-self-adaption">返回</div>
+                </div>
+            </div>
+            <div class="row row-no-padding padding-horizontal">
+                <div class="col-60">
+                    <div class="row-no-padding">
+                        <div class="lh30">
+                            <div class="marker small"><i class="icon icon-circle b-balanced"></i></div>
+                            <span class="departAddress" ng-bind="busSchedule.arriveaddr"></span>
+                        </div>
+                    </div>
+                    <div class="row-no-padding ">
+                        <div class="lh30">
+                            <div class="marker small"><i class="icon icon-circle b-assertive"></i></div>
+                            <span class="departAddress" ng-bind="busSchedule.departaddr"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-40">
+                    <div class="lh30 text-right assertive" ng-show="mode==2||mode==0||mode==1">
+                        <div class="marker-self-adaption marker-self-adaption-assertive">月票</div>
+                        <span class="price"><span class="f14">￥</span>{{busSchedule.monthprice | number:2}}</span>
+                    </div>
+                    <div class="lh30 text-right assertive" ng-show="mode==3">
+                        <div class="marker-self-adaption marker-self-adaption-assertive">次票</div>
+                        <span class="price"><span class="f14">￥</span>{{busSchedule.price | number:2}}</span>
+                    </div>
+                    <div class="text-right lh30 gray f12">约 <span ng-bind="busSchedule.drivetime"></span>分钟</div>
+                </div>
+            </div>
+            <ion-scroll zooming="false" direction="y" ng-show="expandStatus" style="max-height: 200px;">
+                <div style="padding-top: 10px;"></div>
+                <div class="f14 station-tip padding-horizontal">停靠点信息，点击可以查看具体位置</div>
+                <ul class="station-list">
+                    <li class="station-list-item"
+                        ng-click = "activeStations($index)"
+                        ng-class="{active:item.active}"
+                        ng-repeat="item in busStations">
+                        <div class="marker small" ng-show="$first"><i class="icon icon-circle b-balanced"></i></div>
+                        <div class="marker small" ng-show="$middle"><i class="icon icon-circle b-gray"></i></div>
+                        <div class="marker small" ng-show="$last"><i class="icon icon-circle b-assertive"></i></div>
+                        {{item.stationname}}
+                        <span class="item-note positive pr5" ng-click="showLocation(item)">
+                            <i class="ion-navigate pr5"></i>导航</span>
+                    </li>
+                    <div class="station-list-dashed-border"></div>
+                </ul>
+            </ion-scroll>
+            <div class="arrow" ng-click="expand()">
+                <i ng-class="{true:'ion-chevron-up',false:'ion-chevron-down'}[expandStatus]" ></i>
+            </div>
+        </div>
+        <div id="J_map_canvas" style="position: absolute;top: 0px;bottom: 0px;left:0px;right:0px;">
+        </div>
+        <div style="position: absolute;bottom: 10px;z-index: 10;" class="row" ng-show="mode==2">
+            <div class="col-10"></div>
+            <div class="col-34">
+                <button class="button button-middle button-block button-positive button-balanced"
+                        ng-show="mode==2"
+                        ui-sref="ticket.store">购买次票</button>
+            </div>
+            <div class="col-10"></div>
+            <div class="col-34">
+                <button class="button button-middle button-block button-positive button-balanced"
+                        ng-show="mode==2"
+                        ui-sref="ticket.pay({bsid:busSchedule.bsid})">购买月票</button>
+            </div>
+            <div class="col-10"></div>
+        </div>
+        <div style="position: absolute;bottom: 10px;left:10px;right:10px;z-index: 10;" ng-show="mode==1">
+            <button class="button button-middle button-block button-positive button-balanced" ng-show="mode==1" ng-click="baoming()">立即报名</button>
+        </div>
+        <div style="position: absolute;bottom: 10px;left:10px;right:10px;z-index: 10;" ng-show="mode==3">
+            <button class="button button-middle button-block button-positive button-balanced" ng-show="mode==3"  ui-sref="ticket.store">购买次票</button>
+        </div>
+    </ion-content>
+</ui-view>

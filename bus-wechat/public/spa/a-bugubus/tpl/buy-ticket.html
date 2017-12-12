@@ -1,0 +1,49 @@
+<div class="tabs-striped tabs-top tabs-color-balanced">
+    <div class="tabs">
+        <a class="tab-item active">
+            通勤月票
+        </a>
+        <a class="tab-item">
+            日票
+        </a>
+    </div>
+</div>
+<ion-content has-bouncing="false" class="b-gray has-header" style="padding-top: 5px;">
+    <div class="b-white padding-horizontal padding-bottom border-bottom" ng-controller="BuyTicketController">
+        <div class="row border-bottom" style="padding:0 0 0 5px;">
+            <div class="col-10 col-center">
+                <i class="icon ion-ios-shuffle padding-right gray f24"></i>
+            </div>
+            <div class="col-90">
+                <label class="item-input border-bottom" ng-click="selectLocation('departAddress',true)" >
+                    <i class="icon ion-ios-circle-outline balanced padding-right"></i>
+                    <input type="text"  ng-model="schedule.depart" placeholder="我的位置" name="depart" ng-required="true" >
+                </label>
+                <label class="item-input" ng-click="selectLocation('arriveAddress',false)">
+                    <i class="icon ion-ios-circle-outline assertive padding-right"></i>
+                    <input type="text"  ng-model="schedule.arrive" placeholder="你要去哪儿" name="arrive" ng-required="true" >
+                </label>
+            </div>
+        </div>
+        <div class="padding-top b-white">
+            <button ui-sref="schedule_opened" class="button button-middle button-block button-positive button-balanced">
+                查询班车
+            </button>
+        </div>
+    </div>
+    <div class="row row-no-padding pt20 gray">
+        <div class="col-33 text-center b-white border-right" ui-sref="create_route">
+            <div class="padding-top"><i class="icon ion-ios-compose-outline f28"></i></div>
+            <div class="padding-vertical">发起新线路</div>
+        </div>
+        <div class="col-33 text-center b-white border-right" ui-sref="schedule_will_open">
+            <div class="padding-top"><i class="icon ion-ios-alarm-outline f28"></i></div>
+            <div class="padding-vertical">待开通线路</div>
+
+        </div>
+        <div class="col-33 text-center b-white">
+            <div class="padding-top"><i class="icon ion-ios-people-outline f28"></i></div>
+            <div class="padding-vertical">商务包车</div>
+        </div>
+    </div>
+</ion-content>

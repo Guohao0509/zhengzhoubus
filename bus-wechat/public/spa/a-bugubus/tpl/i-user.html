@@ -1,0 +1,51 @@
+<ui-view ng-controller="IUserController">
+    <!--我的界面--主页-->
+    <div class="bar bar-header bar-light">
+        <h1 class="title">用户信息</h1>
+        <button class="button" ng-click="edit()" ng-bind="editButtonText">保存</button>
+    </div>
+    <ion-content class="b-gray padding-top has-header">
+        <p class="padding-left gray">基本信息</p>
+        <div class="list b-white gray f14" ng-show="!editMode" >
+            <a class="item">
+                用户编号
+                <span class="item-note">{{user.userid}} </span>
+            </a>
+            <a class="item">
+                姓名
+                <span class="item-note">
+                    <span ng-show="user.username==undefined">待完善</span>
+                    <span ng-show="user.username!=undefined">{{user.username}}</span>
+                </span>
+            </a>
+            <a class="item">
+                手机号
+                <span class="item-note">{{user.phone}}</span>
+            </a>
+            <a class="item">
+                性别
+                <span class="item-note">
+                    <span ng-show="user.sex==undefined">待完善</span>
+                     <span ng-show="user.sex!=undefined">{{user.sex|transfer:"sex"}}</span>
+                </span>
+            </a>
+        </div>
+        <div ng-show="editMode">
+            <div class="list b-white" >
+                <label class="item-input border-bottom">
+                    <span class="input-label f14 gray">姓名</span>
+                    <input type="text" ng-model="tempUser.username" name="mobile" ng-required="true" >
+                </label>
+                <label class="item-input">
+                    <span class="input-label f14 gray">手机号</span>
+                    <input type="text" ng-model="tempUser.phone" name="mobile" ng-required="true" >
+                </label>
+            </div>
+            <p class="padding-left gray">性别</p>
+            <ion-list>
+                <ion-radio style="padding:10px 0 10px 16px;"  ng-model="tempUser.sex" ng-value="0">男</ion-radio>
+                <ion-radio style="padding:10px 0 10px 16px;"  ng-model="tempUser.sex" ng-value="1">女</ion-radio>
+            </ion-list>
+        </div>
+    </ion-content>
+</ui-view>

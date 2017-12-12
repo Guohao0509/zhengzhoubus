@@ -1,0 +1,70 @@
+﻿<div class="wrapper-md" ng-controller="ListController">
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" dismiss-on-timeout="3000" close="closeAlert($index)" >{{alert.msg}}</alert>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <ul class="nav nav-pills pull-right">
+            <li style=" padding-top:4px; padding-right:4px"><button class="btn m-b-xs btn-sm btn-primary btn-addon" ui-sref="app.news.create()"><i class="fa fa-plus"></i>新增</button></li>
+          </ul>
+      新闻列表
+    </div>
+    <div class="row wrapper">
+      <div class="col-sm-5 m-b-xs">
+        <select class="input-sm form-control w-sm inline v-middle" ng-model="operate" ng-init="operate=0">
+          <option value="0">---</option>
+          <option value="1">删除所选记录</option>
+        </select>
+        <button class="btn btn-sm btn-default" ng-click="exec()">执行</button>                
+      </div>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group">
+          <input type="text" class="input-sm form-control" placeholder="Search" ng-model="search_context">
+          <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" ng-click="search()" type="button">Go!</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive" ng-if="data.total_count>0">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th style="width:20px;">
+              <label class="i-checks m-b-none">
+                <input type="checkbox" ng-click="selectAll()"><i></i>
+              </label>
+            </th>
+            <th>标题</th>
+            <th>创建时间</th>
+            <th style="width:30px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in data.results">
+            <td><label class="i-checks m-b-none"><input type="checkbox" ng-model="data.selected"><i></i></label></td>
+            <td>{{data.title}}</td>
+            <td>{{data.create_time|date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+            <td>
+              <a ui-sref="app.news.detail({id:data.id})" class="active"><i class="fa fa-edit"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="panel-footer">
+      <div class="row">
+        <div class="col-sm-8 text-left">
+          <small class="text-muted inline m-t-sm m-b-sm">{{data.total_count}}条记录</small>
+        </div>
+        <div ng-if="data.page_count>1" class="col-sm-4 text-right text-center-xs">                
+          <ul class="pagination pagination-sm m-t-none m-b-none">
+            <li ng-class="{disabled:!data.previous}"><a ui-sref="app.news.list({page:data.page_index-1,search:search_context})"><i class="fa fa-chevron-left"></i></a></li>
+            <li ng-repeat="page in data.pages" ng-class="{active:page==data.page_index}"><a ui-sref="app.news.list({page:page,search:search_context})">{{page}}</a></li>
+            <li ng-class="{disabled:!data.next}"><a ui-sref="app.news.list({page:data.page_index+1,search:search_context})"><i class="fa fa-chevron-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

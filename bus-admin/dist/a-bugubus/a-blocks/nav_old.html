@@ -1,0 +1,100 @@
+
+<ul class="nav">
+<li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+<span>导航菜单</span>
+</li>
+<li ng-class="{active:$state.includes('app.route')||
+  $state.includes('layout.route_add')||
+  $state.includes('layout.route_edit')||
+  $state.includes('app.schedule')}">
+<a href class="auto">
+<span class="pull-right text-muted">
+<i class="fa fa-fw fa-angle-right text"></i>
+<i class="fa fa-fw fa-angle-down text-active"></i>
+</span>
+<i class="glyphicon glyphicon-list-alt icon text-primary-dker"></i>
+<span>线路管理</span>
+</a>
+<ul class="nav nav-sub dk">
+<li ui-sref-active="active">
+<a ui-sref="app.route.list">
+<span>线路管理</span>
+</a>
+</li>
+<li ui-sref-active="active">
+<a ui-sref="app.schedule.list">
+<span>线路排班</span>
+</a>
+</li>
+</ul>
+</li>
+<li ng-class="{active:$state.includes('app.bus')}">
+<a href class="auto">
+<span class="pull-right text-muted">
+<i class="fa fa-fw fa-angle-right text"></i>
+<i class="fa fa-fw fa-angle-down text-active"></i>
+</span>
+<i class="fa fa-taxi icon text-info-dker"></i>
+<span>车辆管理</span>
+</a>
+<ul class="nav nav-sub dk">
+<li ui-sref-active="active">
+<a ui-sref="app.bus.list">
+<span>车辆管理</span>
+</a>
+</li>
+</ul>
+</li>
+<li ng-class="{active:$state.includes('app.trade')}">
+<a href class="auto">
+<span class="pull-right text-muted">
+<i class="fa fa-fw fa-angle-right text"></i>
+<i class="fa fa-fw fa-angle-down text-active"></i>
+</span>
+<i class="fa fa-cny icon"></i>
+<span>交易管理</span>
+</a>
+<ul class="nav nav-sub dk">
+<li ui-sref-active="active">
+<a ui-sref="app.trade.ticket_list">
+<span>车票查询</span>
+</a>
+</li>
+<li ui-sref-active="active">
+<a ui-sref="app.trade.recharge_list">
+<span>充值查询</span>
+</a>
+</li>
+</ul>
+</li>
+<li ui-sref-active="active">
+<a ui-sref="app.driver.list">
+<i class="glyphicon glyphicon-user icon text-success"></i>
+<span>司机管理</span>
+</a>
+</li>
+<li ui-sref-active="active">
+<a ui-sref="app.statistic.profit">
+<i class="icon-users icon text-info-dker"></i>
+<span>收益统计</span>
+</a>
+</li>
+<li ui-sref-active="active">
+<a ui-sref="app.user.user_list">
+<i class="icon-users icon text-info-dker"></i>
+<span>用户管理</span>
+</a>
+</li>
+<li ui-sref-active="active">
+<a ui-sref="app.dashboard1">
+<i class="icon-envelope-letter icon"></i>
+<span>消息管理</span>
+</a>
+</li>
+<li ui-sref-active="active">
+<a ui-sref="app.dashboard1">
+<i class="icon-settings icon"></i>
+<span>系统设置</span>
+</a>
+</li>
+</ul>

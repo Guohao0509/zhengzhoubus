@@ -1,0 +1,98 @@
+<ui-view ng-controller="bus_service_1">
+      <ion-content scroll="true" >
+          <div class="bar bar-header bar-light">
+            <h1 class="title">我要包车</h1>
+          </div>
+    <div class="b-gray has-header padding-top "  >
+        <div class="list" style="margin-top: 10%;margin-bottom:5%;background-color: #fff;border-top-style: solid;border-top-width:1px;border-top-color: #d8d8d8;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color:#d8d8d8;">
+            <label class="  item-input " style="padding:12px 0;margin-left:20px;"  ng-click="selectLocation('startLocation',true)">
+                <i class="icon ion-record balanced padding-right " style=""></i>
+                <input style="font-size: 16px;" type="text"  ng-model="startLocation"  placeholder="出发地">
+            </label>
+            <div style="margin-left: 40px;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color:#d8d8d8;"></div>
+            <label class=" item-input" style="padding:12px 0;margin-left:20px;" ng-click="selectLocation('endLocation',false)">
+                <i class="icon ion-record assertive padding-right" style="" ></i>
+                <input style="font-size: 16px;" type="text" ng-model="endLocation"  placeholder="目的地">
+            </label>
+        </div>
+
+        <div style="margin-left: 12px;margin-right: 12px;">
+            <ion-tabs class="selectedtabs tabs-striped tabs-top" >
+                <ion-tab title="单程" on-select="onTabSelected(1)">
+                    <ion-pane class="bus-pane" >
+                        <div class="list list-inset" >
+                            <div class=" label-rightleft-border  gray f14">
+                                <a  style="background-color: #fff;border-radius: 0px;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item label-border label-rightleft-border" title="onewayformdata.StartTime" only-valid="{'after': 'today', 'inclusive': true}"    ion-datetime-picker    monday-first   ng-model="onewayformdata.charterStartTime">
+                                    出发时间
+                                    <span class="item-note"> {{onewayformdata.charterStartTime| date:"yyyy-MM-dd HH:mm"}} <i class="icon ion-chevron-right padding-left"></i></span>
+                                </a>
+                                <a style="border-radius: 0px;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item  label-rightleft-border" title="onewayformdata.EndTime" only-valid="{'after': 'today', 'inclusive': true}"    ion-datetime-picker monday-first  ng-model="onewayformdata.charterEndTime">
+                                    结束时间
+                                    <span class="item-note" >{{onewayformdata.charterEndTime| date:"yyyy-MM-dd HH:mm"}} <i class="icon ion-chevron-right padding-left"></i></span>
+                                </a>
+                            </div>
+                            <label style="border-bottom-width: 3px;color: #777777;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item item-input label-rightleft-border label-bottom-border">
+                                乘车人数  <input style="text-align: right;" type="tel" ng-model="onewayformdata.charterCount" placeholder="请填写乘车人数">
+                            </label>
+                        </div>
+                    </ion-pane>
+
+                </ion-tab>
+
+                <ion-tab title="往返" on-select="onTabSelected(2)">
+                    <ion-pane class="bus-pane">
+                        <div class="list list-inset">
+                            <div class=" label-rightleft-border  gray f14">
+                                <a style="border-radius: 0px;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item label-border label-rightleft-border" title="backformdata.StartTime" only-valid="{'after': 'today', 'inclusive': true}"   ion-datetime-picker  monday-first  ng-model="backformdata.charterStartTime">
+                                    出发时间
+                                    <span class="item-note"> {{backformdata.charterStartTime| date:"yyyy-MM-dd HH:mm"}} <i class="icon ion-chevron-right padding-left"></i></span>
+                                </a>
+                                <a style="border-radius: 0px;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item  label-rightleft-border" title="onewayformdata.EndTime" only-valid="{'after': 'today', 'inclusive': true}"    ion-datetime-picker  monday-first  ng-model="backformdata.charterEndTime">
+                                    结束时间
+                                    <span class="item-note" >{{backformdata.charterEndTime| date:"yyyy-MM-dd HH:mm"}} <i class="icon ion-chevron-right padding-left"></i></span>
+                                </a>
+                            </div>
+                            <label style="border-bottom-width: 3px;color: #777777;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item item-input label-rightleft-border label-bottom-border">
+                                乘车人数 <input style="text-align: right;" type="tel" ng-model="backformdata.charterCount" placeholder="请填写乘车人数">
+                            </label>
+                        </div>
+                    </ion-pane>
+                </ion-tab>
+                <ion-tab title="包天" on-select="onTabSelected(3)">
+                    <ion-pane class="bus-pane">
+                        <div class="list list-inset">
+                        <div class=" label-rightleft-border  gray f14">
+                            <a  style="border-radius: 0px;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item label-border label-rightleft-border" title="thenerveformadata.StartTime" only-valid="{'after': 'today', 'inclusive': true}"   ion-datetime-picker only-valid monday-first   ng-model="thenerveformadata.charterStartTime">
+                                出发时间
+                                <span class="item-note"> {{thenerveformadata.charterStartTime| date:"yyyy-MM-dd HH:mm"}} <i class="icon ion-chevron-right padding-left"></i></span>
+                            </a>
+                            <a style="border-radius: 0px;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item  label-rightleft-border" title="onewayformdata.EndTime" only-valid="{'after': 'today', 'inclusive': true}"    ion-datetime-picker monday-first  ng-model="thenerveformadata.charterEndTime">
+                                结束时间
+                                <span class="item-note" >{{thenerveformadata.charterEndTime| date:"yyyy-MM-dd HH:mm"}} <i class="icon ion-chevron-right padding-left"></i></span>
+                            </a>
+                        </div>
+                        <label style="border-bottom-width: 3px;color: #777777;font-size: 16px;padding-top: 17px; padding-bottom: 17px;" class="item item-input label-rightleft-border label-bottom-border">
+                            乘车人数 <input style="text-align: right;" type="tel" ng-model="thenerveformadata.charterCount" placeholder="请填写乘车人数">
+                        </label>
+
+                        </div>
+                    </ion-pane>
+                </ion-tab>
+            </ion-tabs>
+
+        </div>
+        <div class="checked">
+            <ion-list >
+                <ion-checkbox  ng-model="ioncheck.checked" ><span style="font-size: 14px;">需要司机</span></ion-checkbox>
+            </ion-list>
+
+        </div>
+
+    </div>
+      </ion-content>
+      <div class="bar bar-footer">
+          <button  class="button button-block button-positive button-balanced" ng-click="gotobusservice3(startLocation,endLocation,charterStartTime,charterEndTime,charterCount,charterType,checked)">
+              下一步
+          </button>
+      </div>
+  </ui-view>

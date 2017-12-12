@@ -1,0 +1,74 @@
+<ui-view ng-controller="ScheduleWillOpenController">
+    <!--待开通班次列表-->
+    <div class="bar bar-header bar-light">
+        <h1 class="title">待开通班次列表({{totalnum}})</h1>
+    </div>
+    <ion-content has-bouncing="true" class="b-gray has-header has-footer padding-top">
+        <ion-refresher class="gray"
+                on-refresh="refresh()"
+                pulling-text="下拉刷新……">
+        </ion-refresher>
+        <ul class="list mb0">
+            <li ng-show="scheduleList.length==0">
+                <div class="text-center">暂时没有待开通的线路。</div>
+            </li>
+            <li  class="list-item b-white schedule-item border-top padding-vertical  padding-horizontal"
+                 ng-repeat="item in scheduleList">
+                <div class="row row-no-padding">
+                    <div class="col-66">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                <span class="f16 departTime pr5" ng-bind="item.departtime"></span>
+                                <div class="marker-self-adaption">上班</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-33">
+                        <div class="text-right lh30">
+                            <button class="button button-small button-balanced item-button vm"  ng-click="goToScheduleDetail(item)">线路预览</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-no-padding">
+                    <div class="col-60">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon icon-circle b-balanced"></i></div>
+                                <span class="departAddress" ng-bind="item.departaddr"></span>
+                            </div>
+                        </div>
+                        <div class="row-no-padding ">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon icon-circle b-assertive"></i></div>
+                                <span class="departAddress" ng-bind="item.arriveaddr"></span>
+                            </div>
+                        </div>
+                        <div class="row-no-padding ">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                <span class="f16 departTime pr5" ng-bind="item.backDeparttime"></span>
+                                <div class="marker-self-adaption">下班</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-40">
+                        <div class="lh30 text-right assertive">
+                            <div class="marker-self-adaption marker-self-adaption-assertive">次票</div>
+                            <span class="price"><span class="f14">￥</span>{{item.price | number:2}}</span>
+                        </div>
+                        <div class="lh30 text-right assertive">
+                            <div class="marker-self-adaption marker-self-adaption-assertive">月票</div>
+                            <span class="price"><span class="f14">￥</span>{{item.monthprice | number:2}}</span>
+                        </div>
+                        <div class="text-right lh30 gray">报名人数 <span ng-bind="item.personnum"></span></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <button class="button button-middle button-block  button-light" ng-click="getMoreData()" ng-show="showMoreBtn">点击加载更多</button>
+    </ion-content>
+    <div class="bar bar-footer" ui-sref="create_route">
+        <button class="button button-middle button-block button-positive button-balanced">发起我的新线路</button>
+    </div>
+</ui-view>

@@ -1,0 +1,34 @@
+<ion-pane ng-controller="SelectLocationController">
+    <ion-content scroll="false">
+        <div style="height: 100%">
+            <div class="row border-bottom padding-vertical padding-right" style="padding-left:0px;">
+                <div ng-click="cancel()" class="col-20 col-center  text-center gray"><i class="icon  ion-chevron-left"></i>&nbsp;返回</div>
+                <div class="col-80">
+                    <label class="item item-input item-input-wrapper" style="padding: 0px 0px 0px 5px;">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" ng-click="openSelectAddress()" class="input-small" placeholder="输入地点可以搜索">
+                    </label>
+                </div>
+            </div>
+            <div style="width:100%;position: relative;" class="border-bottom-line">
+                <div id="J_map_canvas" style="width:100%;height:200px;"></div>
+                <div class="static-marker"><i class="icon ion-ios-location positive"></i></div>
+            </div>
+            <ion-scroll zooming="false" direction="y" style="position: absolute;top: 252px;bottom: 0px;left:0px;right:0px;">
+                <ul class="list address-list">
+                    <li class="list-item padding-horizontal" ng-click="active(item,$index)" ng-class="{true: 'active'}[item.active]" ng-repeat="item in poilist">
+                        <div class="row border-bottom">
+                            <div class="col-80">
+                                <div class="f14 dark" ng-bind="item.name"></div>
+                                <div class="f12 gray" ng-bind="item.address"></div>
+                            </div>
+                            <div class="col-20 col-center text-right">
+                                <a type="button" class="button button-small button-small-w42 button-balanced button-outline" ng-click="save()" ng-show="item.active">确定</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </ion-scroll>
+        </div>
+    </ion-content>
+</ion-pane>

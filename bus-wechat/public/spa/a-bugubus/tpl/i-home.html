@@ -1,0 +1,29 @@
+<!--我的界面--主页-->
+<ion-content class="b-gray" style="padding-top: 20px;">
+    <div class="list b-white gray f14">
+        <a class="item" ui-sref="auth.login" ng-show="session.user.userInfo==undefined">
+            <i class="icon ion-person f18 pr5 vertical-middle"></i>
+            登录/注册
+            <span class="item-note">  <i class="icon ion-chevron-right padding-left"></i></span>
+        </a>
+        <a class="item" ui-sref="i.user" ng-show="session.user.userInfo!=undefined">
+            <i class="icon ion-person f18 pr5 vertical-middle"></i>
+            {{session.user.userInfo.phone}}
+            <span class="item-note">  <i class="icon ion-chevron-right padding-left"></i></span>
+        </a>
+    </div>
+    <div class="list b-white gray f14">
+        <a class="item">
+            买票订单
+            <span class="item-note">  <i class="icon ion-chevron-right padding-left"></i></span>
+        </a>
+        <a class="item">
+            充值订单
+            <span class="item-note">  <i class="icon ion-chevron-right padding-left"></i></span>
+        </a>
+        <a class="item">
+            联系客服
+            <span class="item-note">  400-900-100<i class="icon ion-chevron-right padding-left"></i></span>
+        </a>
+    </div>
+</ion-content>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/auth/controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/bus/controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/driver/controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/main.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/route/controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/route/create_list.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/route/edit.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/router.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/schedule/controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-bugubus/schedule/edit.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-test-data/detail.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/a-test-data/list.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/css/app.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/js/directives/table-pagination.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/js/services/my-service.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/vendor/jquery/file/bootstrap-filestyle.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/vendor/libs/moment.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/routes/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/routes/users.js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

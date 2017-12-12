@@ -1,0 +1,37 @@
+<div class="bar bar-header bar-light">
+    <h1 class="title">发起新线路</h1>
+</div>
+<ion-content has-bouncing="false" class="b-gray has-header padding-top" ng-controller="CreateRouteController">
+    <form name="form" class="b-white padding-horizontal border-bottom" >
+        <div class="row border-bottom" style="padding:0 0 0 5px;">
+            <div class="col-10 col-center">
+                <i class="icon ion-ios-shuffle padding-right gray f24" ng-click="exchangePosition()"></i>
+            </div>
+            <div class="col-90">
+                <label class="item-input border-bottom" ng-click="selectLocation('departAddressCreate',true)" >
+                    <i class="icon ion-ios-circle-outline balanced padding-right"></i>
+                    <input type="text"  ng-model="schedule.depart" placeholder="我的位置" name="depart" ng-required="true" >
+                </label>
+                <label class="item-input" ng-click="selectLocation('arriveAddressCreate',false)">
+                    <i class="icon ion-ios-circle-outline assertive padding-right"></i>
+                    <input type="text"  ng-model="schedule.arrive" placeholder="你要去哪儿" name="arrive" ng-required="true">
+                </label>
+            </div>
+        </div>
+    </form>
+    <div class="list padding-top gray f14">
+        <a class="item" title="schedule.onDutyTitle" ion-datetime-picker time   ng-model="schedule.onDutyTime">
+            出发时间
+            <span class="item-note"> {{schedule.onDutyTime| date:"HH:mm"}} <i class="icon ion-chevron-right padding-left"></i></span>
+        </a>
+        <a class="item" title="schedule.offDutyTitle"  ion-datetime-picker time   ng-model="schedule.offDutyTime">
+            到达时间
+           <span class="item-note" >{{schedule.offDutyTime| date:"HH:mm"}} <i class="icon ion-chevron-right padding-left"></i></span>
+        </a>
+    </div>
+    <div class="padding-horizontal padding-top">
+        <button ng-click="save()" ng-disabled="form.$invalid" class="button button-middle button-block button-positive button-balanced">
+            发起新线路
+        </button>
+    </div>
+</ion-content>

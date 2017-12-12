@@ -1,0 +1,1 @@
+module.exports={options:{files:["package.json","bower.json"],updateConfigs:["package"],commit:!0,commitMessage:"Release v%VERSION%",commitFiles:["-a"],createTag:!0,tagName:"v%VERSION%",tagMessage:"Version %VERSION%",push:!0,pushTo:"origin",gitDescribeOptions:"--tags --always --abbrev=1 --dirty=-d"}};

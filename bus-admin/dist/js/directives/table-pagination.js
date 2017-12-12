@@ -1,0 +1,1 @@
+angular.module("app.directives").directive("tablePagination",[function(){return{restrict:"A",link:function(){return null},templateUrl:"tpl/blocks/table-pagination.html"}}]);

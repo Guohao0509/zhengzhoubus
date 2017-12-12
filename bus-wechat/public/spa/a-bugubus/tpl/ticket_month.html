@@ -1,0 +1,66 @@
+<ui-view ng-controller="TicketMonthController">
+    <div class="bar bar-header bar-light">
+        <h1 class="title">通勤月票</h1>
+    </div>
+    <ion-content has-bouncing="true" class="b-gray has-header pt18">
+        <div class="no-ticket-img" ng-class="{true:'show'}[scheduleList.length==0&&requestStatus==true]" ng-show="scheduleList.length==0">
+            <div>
+                <img src="images/month-bus.png">
+            </div>
+            <div class="no-ticket-img-text">您暂无上下班行程</div>
+        </div>
+        <ul class="list">
+            <li class="list-item schedule-item   padding-horizontal"  ng-show="item.isactive!=2" ng-repeat="item in scheduleList"
+                    ui-sref="ticket.detail({ticketid:item.ticketid})">
+                <div class="ticket-list-item " ng-class="{true:'disabled'}[item.isactive==0]">
+                    <div class="row row-no-padding padding-horizontal padding-vertical">
+                        <div class="col-75">
+                            <div class="row-no-padding">
+                                <div class="lh24">
+                                    <div class="marker small"><i class="icon icon-circle b-white"></i></div>
+                                    <span class="departAddress" ng-bind="item.departaddr"></span>
+                                </div>
+                            </div>
+                            <div class="row-no-padding ">
+                                <div class="lh24">
+                                    <div class="marker small"><i class="icon icon-circle b-white"></i></div>
+                                    <span class="departAddress" ng-bind="item.arriveaddr"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-25 text-right">
+                            <div class="ticket-list-item-time f20">{{item.enddate|date:"MM"}}<span class="f12">月</span></div>
+                        </div>
+                    </div>
+                    <div class="ticket-list-item-dashed-line"></div>
+                    <div class="row row-no-padding padding-horizontal padding-vertical">
+                        <div class="col-60">
+                            <div class="row row-no-padding f12">
+                                <div>
+                                    <div class="inline-block vm">{{item.departtime}}-{{item.backDeparttime}}</div>
+                                    <div class="marker-self-adaption small marker-self-adaption-light">上下班</div>
+                                </div>
+                            </div>
+                            <div class="row row-no-padding f12">
+                                <div class="inline-block vm">{{item.startdate|date:"yyyy.MM.dd"}}-{{item.enddate|date:"yyyy.MM.dd"}}</div>
+                                <span>有效</span>
+                            </div>
+                        </div>
+                        <div class="col-40">
+                            <div class="lh24" style="padding-top: 17px;">
+                                <div class="marker-self-adaption marker-self-adaption-light">月票</div>
+                                <div class="price">￥{{item.monthprice| number:2}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle left-circle"></div>
+                    <div class="circle right-circle"></div>
+                    <div class="seal"></div>
+                </div>
+            </li>
+        </ul>
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-middle button-block button-positive button-balanced" ui-sref="schedule_opened">购买车票</button>
+    </div>
+</ui-view>

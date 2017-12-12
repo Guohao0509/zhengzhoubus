@@ -1,0 +1,166 @@
+     <ui-view ng-controller="bus_service_2">
+         <ion-content  scroll='true'>
+             <div class="bar bar-header bar-light">
+                 <h1 class="title">完善信息</h1>
+             </div>
+            <div style="height: 800px;"   class=" content has-header has-footer padding-top ">
+                <ul >
+                <li class="list-item b-white schedule-item border-top padding-vertical  padding-horizontal">
+                    <div   class=" row row-no-padding">
+                        <div class="col-40">
+                            <div class="row-no-padding">
+                                <div class="lh30">
+                                    <div class="marker small"><i class="icon icon-circle b-balanced"></i></div>
+                                    <span class="f16  pr5" >出发地:</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-60">
+                            <div class=" lh30">
+                                <span class="f16  pr5" >{{usermessobj.startLocation}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div   class=" row row-no-padding">
+                        <div class="col-40">
+                            <div class="row-no-padding">
+                                <div class="lh30">
+                                    <div class="marker small"><i class="icon icon-circle b-assertive"></i></div>
+                                    <span class="f16  pr5" >目的地:</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-60">
+                            <div class=" lh30">
+                                <span class="f16  pr5" >{{usermessobj.endLocation}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div   class=" row row-no-padding">
+                        <div class="col-40">
+                            <div class="row-no-padding">
+                                <div class="lh30">
+                                    <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                    <span class="f16  pr5" >出发时间:</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-60">
+                            <div class=" lh30">
+                                <span class="f16  pr5" >{{usermessobj.charterStartTime}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div   class=" row row-no-padding">
+                        <div class="col-40">
+                            <div class="row-no-padding">
+                                <div class="lh30">
+                                    <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                    <span class="f16  pr5" >到达时间:</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-60">
+                            <div class=" lh30">
+                                <span class="f16  pr5" >{{usermessobj.charterEndTime}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div   class=" row row-no-padding">
+                        <div class="col-40">
+                            <div class="row-no-padding">
+                                <div class="lh30">
+                                    <div class="marker small"></div>
+                                    <span class="f16  pr5" >乘车人数:</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-60">
+                            <div class=" lh30">
+                                <span class="f16  pr5" >{{usermessobj.charterCount}}人</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div   class=" row row-no-padding">
+                        <div class="col-40">
+                            <div class="row-no-padding">
+                                <div class="lh30">
+                                    <div class="marker small"></div>
+                                    <span class="f16  pr5" >包车类型:</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-60">
+                            <div class=" lh30">
+                                <span class="f16  pr5" >{{usermesschartype[usermessobj.charterType]}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div   class=" row row-no-padding">
+                        <div class="col-40">
+                            <div class="row-no-padding">
+                                <div class="lh30">
+                                    <div class="marker small"></div>
+                                    <span class="f16  pr5" >是否代驾:</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-60">
+                            <div class=" lh30">
+                                <span class="f16  pr5" >{{needinfotype[usermessobj.needInfo]}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+                </ul>
+
+
+             <!--<input  style="display: inline;width: 80%;padding-left: 2%;" type="text"  class="" name="commName"  ng-model="usermessobj.commName" placeholder="输入2-4位的中文昵称 " ng-required="true" ng-pattern="/^[\u4e00-\u9fa5]{2,4}$/">-->
+                <!--<div style="height: 300px;">-->
+                <div style="margin-top: 5%;">
+                    <div style="text-align: center;margin-bottom: 2%;">
+                        <!--必填标记<div class="required-xin ion-ios-medical assertive "></div>-->
+                        <label class="col-sm-2 control-label"><span style="color: red">*</span>昵称</label>
+                        <input name="commName" placeholder="请输入2-4位中文昵称" ng-model="usermessobj.commName" style="display: inline-block;width:70%;border-style:none solid solid solid; border-width:0 1px 1px 1px;border-color:  #ededed;padding-left: 5px;" type="text"  >
+                        <!--<div class="validstyle " ng-hide="bus_service_Form.commName.$valid" ><div class=" ion-close-round assertive"></div></div>-->
+                    </div>
+                    <!--<div class="validstyle ion-close-round assertive"  ng-show="bus_service_Form.commName.$error.required"></div>-->
+                </div>
+
+                <div style="text-align: center;margin-bottom: 2%;">
+                    <label class="col-sm-2 control-label"><span style="color: red">*</span>电话</label>
+                    <input name="commMobile" placeholder="请输入11位号码" ng-model="usermessobj.commMobile" style="display: inline-block;width:70%;border-style:none solid solid solid; border-width:1px 1px 1px 1px;border-color:  #ededed;padding-left: 5px;" type="tel" >
+                    <!--<div class="validstyle" ng-hide="bus_service_Form.commMobile.$valid"><div class=" ion-close-round assertive"></div></div>-->
+
+                </div>
+                <div style="text-align: center;margin-bottom: 2%;">
+                    <!--<label  class="col-sm-2 control-label"><span class="text-danger text-md "></span>备注</label>-->
+                    <label class="col-sm-2 control-label"><span style="visibility: hidden">*</span>备注</label>
+                    <textarea placeholder="请输入不多于100个字" type="text" ng-model="usermessobj.repInfo" style="display: inline-block;width:70%; height: 100px;border-style:none solid solid solid; border-width:0 1px 1px 1px;border-color:  #ededed;padding-left: 5px;"  ></textarea></div>
+                <div class=" gray padding-horizontal padding-vertical" ng-click="agreeChange()">
+                    <div class="agreement-checkbox inline-block vm" ng-class="{true:'active'}[argee]"><i class="icon ion-checkmark-round"></i></div>
+                    <div class="inline-block vm">同意 《<a href="http://chargebus.forku.cn/page/diandongzulin.html">畅的科技纯电动汽车租赁协议</a>》</div>
+                </div>
+                <!--</div>-->
+                 </div>
+             </ion-content>
+
+         <div class="bar bar-footer">
+             <button  class="button button-block button-positive button-balanced" ng-disabled="!argee" ng-click="buservice()"  >
+                 提交
+             </button>
+         </div>
+     </ui-view>

@@ -1,0 +1,13 @@
+{
+  "code":0,
+  "data":{
+    "id":1,
+    "name":"周快",
+    "status":1,
+    "description":"测试专用1",
+    "birthday":"2016-10-01",
+    "sex":"男",
+    "company":"垃圾的三星",
+    "mobile":"13476257616"
+  }
+}

@@ -1,0 +1,67 @@
+<ui-view ng-controller="ScheduleOpenedController">
+    <!--待开通班次列表-->
+    <div class="bar bar-header bar-light">
+        <h1 class="title">已开通班次列表({{scheduleList.length}})</h1>
+    </div>
+    <ion-content has-bouncing="true" class="b-gray has-header has-footer padding-top">
+        <ul class="list">
+            <li ng-show="scheduleList.length==0">
+                <div class="text-center">没有找到已开通的线路。</div>
+            </li>
+            <li class="list-item b-white schedule-item row  border-top padding-top  padding-horizontal" ng-repeat="item in scheduleList">
+                <div class="col-75">
+                    <div class="row padding0">
+                        <div class="col-33">
+                            <div class="padding-vertical">
+                                <div class="marker start-marker small">去</div>
+                                <span class="f16 departTime" ng-bind="item.goDepartTime"></span>
+                            </div>
+                            <div>
+                                <div class="marker b-white-marker small">去</div>
+                                <span class="f16 departTime" ng-bind="item.goArriveTime">08:30</span>
+                            </div>
+                        </div>
+                        <div class="col-66 col-center">
+                            <div class="padding-vertical"><i class="icon ion-ios-circle-outline balanced  f12 pr5"></i><span ng-bind="item.goDepart"></span></div>
+                            <div><i class="icon ion-ios-circle-outline assertive f12 pr5"></i><span ng-bind="item.goArrive"></span></div>
+                        </div>
+                    </div>
+                    <div class="f12 gray pt5">
+                        <span style="padding-left: 22px;"></span>
+                        <span class="padding-right" ng-bind="item.goPlateNum"></span>
+                        <span class="padding-right">33座豪华大巴</span>
+                    </div>
+                    <div class="row padding0">
+                        <div class="col-33">
+                            <div class="padding-top">
+                                <div class="marker stop-marker small">返</div>
+                                <span class="f16 departTime" ng-bind="item.backDepartTime"></span>
+                            </div>
+                            <div class="padding-top">
+                                <div class="marker b-white-marker small">返</div>
+                                <span class="f16 departTime" ng-bind="item.backArriveTime"></span>
+                            </div>
+                        </div>
+                        <div class="col-66 col-center">
+                            <div class="padding-top"><i class="icon ion-ios-circle-outline balanced  f12 pr5"></i><span ng-bind="item.backDepart"></span></div>
+                            <div class="padding-top"><i class="icon ion-ios-circle-outline assertive f12 pr5"></i><span ng-bind="item.backArrive"></span></div>
+                        </div>
+                    </div>
+                    <div class="f12 gray pt5">
+                        <span style="padding-left: 22px;"></span>
+                        <span class="padding-right" ng-bind="item.backPlateNum"></span>
+                        <span class="padding-right">33座豪华大巴</span>
+                    </div>
+                </div>
+                <div class="col-25">
+                    <div class="balanced padding-top" style="padding-bottom: 20px;"><i class="icon ion-map pr5"></i>线路预览 </div>
+                    <div class="text-center assertive once-price f24 padding-vertical">￥<span ng-bind="item.oncePrice"></span><span class="f12">/天</span></div>
+                    <div class="text-center"><button type="button" ui-sref="schedule.detail({ids:'100,101',busMode:0})" class="button button-balanced button-small">购买月票</button> </div>
+                </div>
+            </li>
+        </ul>
+    </ion-content>
+    <div class="bar bar-footer" ui-sref="create_route">
+        <button class="button button-block button-positive button-balanced">发起我的新线路</button>
+    </div>
+</ui-view>

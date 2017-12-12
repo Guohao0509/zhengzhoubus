@@ -1,0 +1,50 @@
+<div ng-controller="ScheduleTicketPaySuccess">
+    <ion-content has-bouncing="true" class="b-gray has-footer">
+        <div class="" style="padding-top: 30px;margin-bottom: 30px;">
+            <h1 class="sign-up-success"></h1>
+            <h4 class="text-center gray f18">
+                <p>购票成功!</p>
+                <p>本次购买的车票信息如下：</p>
+            </h4>
+        </div>
+        <div class="row b-white border-bottom padding-vertical padding-horizontal">
+            <div class="col-66">
+                <div class="row f18"><span ng-bind="orderInfo.linename"></span></div>
+                <div class="row c-444">
+                    <div>
+                        <i class="icon ion-ios-circle-outline balanced  f12 pr5"></i>
+                        <span class="pr5 " ng-bind="orderInfo.depart"></span>
+                        <span ng-bind="orderInfo.goDepartTime"></span>
+                    </div>
+                </div>
+                <div class="row c-444">
+                    <div>
+                        <i class="icon ion-ios-circle-outline assertive  f12 pr5"></i>
+                        <span class="pr5" ng-bind="orderInfo.arrive"></span>
+                        <span ng-bind="orderInfo.backDepartTime"></span>
+                    </div>
+                </div>
+                <div class="row c-444">
+                    <span class="f18 assertive pr5" ng-bind="orderInfo.totalMoney"></span>
+                    <span class="pr5">元</span>
+                    <span class="" >出行22天</span>
+                </div>
+            </div>
+            <div class="col-33">
+                <div class="text-right padding-bottom"><button class="button button-positive button-small" ng-bind="orderInfo.plateNum"></button> </div>
+                <div class="text-right energized f16 padding-vertical">
+                    <span ng-bind="orderInfo.year"></span>
+                    <span>年</span>
+                    <span ng-bind="orderInfo.month"></span>
+                    <span>月</span>
+                </div>
+                <div class="text-right">
+                    <span class="energized f16">月票</span>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-block button-positive button-balanced" ng-click="showTicket()">查看车票</button>
+    </div>
+</div>

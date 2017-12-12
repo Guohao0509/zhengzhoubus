@@ -1,0 +1,21 @@
+<div class="bar bar-header bar-light">
+    <h1 class="title">储值卡充值</h1>
+</div>
+<ion-pane ng-controller="TicketRechargeController">
+    <ion-content class="has-header">
+        <form name="form" class="list padding-horizontal">
+            <label class="item-input border-bottom">
+                <span class="input-label">金额</span>
+                <input type="number" ng-model="user.rechargeNum" placeholder="请在此输入充值金额" ng-pattern=""  ng-required="true" >
+            </label>
+        </form>
+        <div class="padding-horizontal">
+            <button class="button button-middle button-block button-positive button-balanced"
+                    ng-click="recharge()"
+                    ng-disabled="form.$invalid">
+                下一步
+            </button>
+        </div>
+    </ion-content>
+
+</ion-pane>

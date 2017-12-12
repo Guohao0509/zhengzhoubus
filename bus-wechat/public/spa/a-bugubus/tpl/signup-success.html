@@ -1,0 +1,22 @@
+<ui-view  ng-controller="SignUpSuccessController" >
+    <ion-content has-bouncing="false" class="b-gray">
+        <div class="padding-top" style="padding-top: 100px;">
+            <h1 class="sign-up-success"></h1>
+            <h4 class="text-center gray f24">您已报名成功!</h4>
+            <h4 class="text-center gray f16">我们会在线路开通后立刻通知您!</h4>
+            <div class="text-center" style="margin-top:30px;">
+                <button class="button button-assertive button-share" ng-click="share()">点击分享线路</button>
+            </div>
+            <!-- <div class="text-center">
+                 提示：点击右上角按钮分享到朋友圈，可以增加开通几率
+             </div>-->
+        </div>
+
+    </ion-content>
+    <div class="tip-layer" ng-show="tipStatus">
+        <div class="tip-cloud text-center">
+            <p>点击右上角，</p>
+            <p>分享给小伙伴一起上下班吧</p>
+        </div>
+    </div>
+</ui-view>

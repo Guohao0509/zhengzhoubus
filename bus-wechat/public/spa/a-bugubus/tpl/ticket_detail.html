@@ -1,0 +1,57 @@
+<ui-view ng-controller="TicketDetailController">
+    <!--待开通班次列表-->
+    <ion-content has-bouncing="true" class="b-gray padding-top" ng-show="requestStatus">
+        <div class="ticket-detail" ng-class="{true:'disabled'}[ticket.isactive==0]">
+            <div class="ticket-detail-month-status">
+            </div>
+            <div class="ticket-detail-status f24 gray">
+                {{ticket.isactive|transfer:'ticketStatus'}}
+            </div>
+            <div class="row row-no-padding padding-horizontal padding-vertical">
+                <div class="col-50">
+                    <button ng-class="{true:'button-dark',false:'button-positive'}[ticket.isactive==0]" class="button button-small  item-button vm">{{ticket.platenum}}</button>
+                </div>
+                <div class="col-50 text-right">
+                    <button class="button button-small button-balanced item-button vm" ui-sref="schedule.detail({bsid:ticket.bsid,mode:0})">线路地图</button>
+                </div>
+            </div>
+            <div class="row row-no-padding padding-horizontal position-relative">
+                <div>
+                    <div class="lh24">
+                        <div class="marker small"><i class="icon icon-circle" ng-class="{true:'b-gray',false:'b-balanced'}[ticket.isactive==0]"></i></div>
+                        <span class="departAddress" ng-bind="ticket.departaddr"></span>
+                    </div>
+                    <div class="lh24">
+                        <div class="marker small"><i class="icon icon-circle" ng-class="{true:'b-gray',false:'b-assertive'}[ticket.isactive==0]"></i></div>
+                        <span class="departAddress" ng-bind="ticket.arriveaddr"></span>
+                    </div>
+                </div>
+                <div class="ticket-detail-month">
+                    <span style="padding-left: 10px;">{{ticket.startdate|date:'MM'}}</span><span class="f12">月</span>
+                </div>
+            </div>
+            <div class="row row-no-padding f12 padding-horizontal gray">
+                <div>
+                    <div class="inline-block vm">{{ticket.departtime}}-{{ticket.backDeparttime}}</div>
+                    <div class="marker-self-adaption small">上下班</div>
+                </div>
+            </div>
+            <div class="row row-no-padding f12 padding-horizontal gray">
+                <div class="inline-block vm">{{ticket.startdate|date:"yyyy.MM.dd"}}-{{ticket.enddate|date:"yyyy.MM.dd"}}</div>
+                <span>有效</span>
+            </div>
+            <div class="padding-horizontal padding-vertical text-center">
+                <div class="b-white">
+                    <canvas barcode ng-model="barcode"></canvas>
+                </div>
+                <!--<div class="padding-vertical">
+                   &lt;!&ndash; <div ng-show="cardInfo.refreshStatus">正在刷新条形码</div>&ndash;&gt;
+                    <div ng-show="!cardInfo.refreshStatus"><span class="assertive" ng-bind="cardInfo.refreshTime"></span>秒后刷新条形码</div>
+                </div>-->
+            </div>
+        </div>
+        <div class="row padding-vertical text-center" ng-show="ticket.renewal==1">
+            <button class="button  button-balanced button-middle">购买下月车票</button>
+        </div>
+    </ion-content>
+</ui-view>

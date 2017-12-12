@@ -1,0 +1,70 @@
+<div ng-controller="ScheduleTicketPay">
+    <ion-content has-bouncing="true" class="b-gray has-footer" ng-show="status">
+        <div class="row b-white border-bottom padding-vertical padding-horizontal">
+            <div class="col-66">
+                <div class="row f18"><span ng-bind="orderInfo.linename"></span></div>
+                <div class="row c-444">
+                    <div>
+                        <i class="icon ion-ios-circle-outline balanced  f12 pr5"></i>
+                        <span class="pr5 " ng-bind="orderInfo.depart"></span>
+                        <span ng-bind="orderInfo.goDepartTime"></span>
+                    </div>
+                </div>
+                <div class="row c-444">
+                    <div>
+                        <i class="icon ion-ios-circle-outline assertive  f12 pr5"></i>
+                        <span class="pr5" ng-bind="orderInfo.arrive"></span>
+                        <span ng-bind="orderInfo.backDepartTime"></span>
+                    </div>
+                </div>
+               <!--  <div class="row c-444">
+                    <span class="f18 assertive pr5" ng-bind="orderInfo.totalMoney"></span>
+                    <span class="pr5">元</span>
+                    <span class="">出行22天</span>
+                </div> -->
+            </div>
+            <div class="col-33">
+                 <div class="text-right padding-bottom"><button class="button button-positive button-small" ng-bind="orderInfo.plateNum"></button> </div>
+            </div>
+        </div>
+        <!-- 车票类型 -->
+        <div class="row gray padding-vertical">
+            <span class="padding-left">月票时间</span>
+            <div style="margin-left: 20px;">
+                <span ng-bind="orderInfo.year"></span>
+                <span>年</span>
+                <span ng-bind="orderInfo.month"></span>
+                <span>月</span>
+            </div>
+        </div>
+        <ion-list ng-init="orderInfo.monthTicketType = 1">
+            <ion-radio style="padding: 10px;" name="monthTicketType" ng-model="orderInfo.monthTicketType"   ng-value="'1'">
+                <!-- <img src="images/wxpay.jpg" style="width: 20px;vertical-align: middle;"> -->
+                <span class="padding-vertical">仅购买当月</span>&nbsp;&nbsp;&nbsp;
+                <span class="padding-vertical" style="">剩余出行&nbsp;<b class="assertive">{{remainDays}}</b>&nbsp;天</span>&nbsp;&nbsp;&nbsp;
+                <span class="pr5 padding-vertical">共计<b class="assertive">{{remainMoney}}</b>&nbsp;元</span>
+            </ion-radio>
+            <ion-radio style="padding: 10px;" name="monthTicketType" ng-model="orderInfo.monthTicketType"  ng-value="'2'">
+                <!-- <img src="images/wxpay.jpg" style="width: 20px;vertical-align: middle;"> -->
+                <span class="padding-vertical">购买次月</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="padding-vertical" style="">共计出行&nbsp;<b class="assertive">{{totalDays}}</b>&nbsp;天</span>&nbsp;&nbsp;&nbsp;
+                <span class="pr5 padding-vertical">共计<b class="assertive">{{totalMoney}}</b>&nbsp;元</span>
+            </ion-radio>
+        </ion-list>
+       
+        <!--支付方式-->
+        <div class="row gray padding-vertical">
+            <span class="padding-left">支付方式</span>
+        </div>
+        <ion-list>
+            <ion-radio style="padding: 10px;" name="payType" ng-model="orderInfo.payType"  ng-value="'0'"><img src="images/wxpay.jpg" style="width: 20px;vertical-align: middle;">微信支付</ion-radio>
+        </ion-list>
+        <div class=" gray padding-horizontal padding-vertical" ng-click="agreeStatusChange()">
+            <div class="agreement-checkbox inline-block vm" ng-class="{true:'active'}[agreeStatus]"><i class="icon ion-checkmark-round"></i></div>
+            <div class="inline-block vm">同意 《<a href="http://chargebus.forku.cn/page/xitongxieyi.html">畅的巴士系统使用协议</a>》</div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-block button-positive button-balanced" ng-disabled="!agreeStatus" ng-click="submitOrder()">确认支付{{orderInfo.total}}元</button>
+    </div>
+</div>

@@ -1,0 +1,316 @@
+body{}
+.tabs{background-color: #fff; border-color: #ddd;}
+.bar-footer{height: 50px;}
+.border-top{
+    background-position: top;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    border-color: #ddd;
+    background-image: linear-gradient(0deg, #ddd, #ccc 50%, transparent 50%);
+}
+.border-bottom{
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    border-color: #ddd;
+    background-image: linear-gradient(0deg, #ddd, #ccc 50%, transparent 50%);
+}
+.border-right{  border-right: 0.5px solid #ddd;}
+.border-bottom-line{ border-bottom: 0.5px solid #ddd;}
+.border-bottom-dashed{border-bottom: 0.5px dashed #ccc;}
+.input-label{width:25%;color:#666;}
+.input-label-br{margin:7px 10px 7px 0px;padding:0px;}
+.b-white{background-color: #fff;}
+.tab-item{font-size: 16px;}
+.tabs-color-balanced .tab-item{color: #666;}
+
+.button-middle {
+    padding: 2px 4px 1px;
+    min-width: 28px;
+    min-height: 40px;
+    font-size: 16px;
+    line-height: 30px;
+}
+.padding5{padding:5px;}
+.button-small-w42{min-width: 42px;}
+.button-small-w80{min-width: 80px;}
+.button-small-small{font-size:12px;padding:0px;}
+.f28{font-size:28px;}
+.f24{font-size:24px;}
+.f18{font-size: 18px;}
+.f20{font-size:20px;}
+.f14{font-size:14px;}
+.f16{font-size:16px;}
+.f12{font-size:12px;}
+.f40{font-size: 40px;}
+.pr0{padding-right: 0px!important;}
+.mb10{margin-bottom: 10px;}
+.mb0{margin-bottom: 0px!important;}
+.gray{color: #777;}
+.c-444{color:#444;}
+.padding0{padding: 0px;}
+.padding10{padding: 10px;}
+.padding{padding:15px;}
+.pt18{padding-top: 17px;}
+.pt5{padding-top: 5px;}
+.pr5{padding-right:5px;}
+.pl3{padding-left:3px;}
+.pt20{padding-top:20px;}
+.route-search-modal{position:absolute;top: 40px;left: 0px;height:100%;right:0px;z-index: 9999;background-color: #000;}
+.input-top{position: absolute;top:0px;width: 100%;left:0px;}
+.static-marker{position:absolute;left:50%;margin-left: -10px;z-index: 9999;top:50%;margin-top: -32px;}
+.static-marker .icon{font-size:36px;}
+.input-small{
+    height: 30px !important;
+    line-height: 30px!important;}
+.address-list .list-item.active{background-color:#f7f7f7;}
+.b-gray{background-color: #f7f7f7;}
+.button.button-block{width: 100%;margin:0;padding: 0px;}
+.item{
+    font-size: 14px;
+    /*padding: 10px 15px;*/
+
+}
+.tabs-top > .tabs, .tabs.tabs-top{top:0px;}
+.tab-item{max-width: inherit;}
+/*地图相关*/
+.bus-image{background:url("../images/bus_car.png");background-size: 24px 24px;}
+.marker{width:24px;height: 24px;border-radius: 50%;line-height: 24px;text-align: center;position: relative;display: inline-block;vertical-align: middle;}
+.marker-self-adaption{line-height:14px;-webkit-border-radius: 2px;text-align: center;position: relative;display: inline-block;vertical-align: middle;border:1px solid #bcbcbc;font-size: 12px;color:#bcbcbc;padding:0px 1px;}
+.marker.small{font-size:10px;width: 16px;height: 16px;line-height: 16px;margin-right: 5px;}
+.start-marker{background-color: #27c24c;color:#fff;}
+/*.station-marker{background:url("../img/diricon.png")  -164px -102px;}*/
+.station-marker{background-color: #00b3ee;color:#fff;}
+.b-white-marker{background-color: #fff;color: #fff;}
+.stop-marker{background-color: #f05050;color:#fff;}
+/*新增地图图标*/
+
+/**班次列表样式*/
+.schedule-item .departTime{display: inline-block;font-size: 16px;vertical-align: middle;}
+.schedule-item .once-price{}
+.schedule-item {margin-bottom: 10px;}
+.vertical-middle{vertical-align: middle}
+.item-complex .item-content, .item-radio .item-content{
+    padding: 0px 49px 0px 0px;
+}
+.item-radio input:checked + .radio-content .item-content{background-color: #fff;}
+.item-radio .radio-icon{padding:5px 15px;}
+/**
+车票列表样式*/
+.list-ticket-item{margin-bottom: 10px;background-color:#fff;border: 1px solid #eee;-webkit-box-shadow: 1px 1px 5px rgba(204,204,204,.5)}
+.list-ticket-item .ticket-info{border-right: 1px dashed #ddd;}
+.list-ticket-item .tips{background-color: #f7f7f7;}
+.list-ticket-item .tips p{margin: 0px;line-height: 24px;}
+.list-ticket-item .price{color:#ff3b30;}
+.list-ticket-item.active{background-color: #4cd964;color: #fff;}
+.list-ticket-item.active .ticket-info{border-right: 1px dashed #fff;}
+.list-ticket-item.active .tips{background-color:#28a54c;color: #fff;}
+.list-ticket-item.active .tips p{color: #fff}
+.list-ticket-item.active .price,.list-ticket-item.active .item-note{color:#fff;}
+.bar .button, .bar button{font-size: 16px;}
+.schedule-detail{color:#333;-webkit-border-radius:3px;-webkit-box-shadow: 0px 0px 10px rgba(100,100,100,.3);background-color: #fff;}
+.schedule-detail .arrow{position: absolute;left:50%;background-color: #fff;-webkit-box-shadow: 0px 5px 5px rgba(100,100,100,.2);-webkit-border-radius: 3px; padding:4px 20px;margin-top:8px;margin-left: -25px;}
+.sequence{width:16px;height: 16px;border-radius: 50%;line-height: 14px;text-align: center;position: relative;display: inline-block;vertical-align: middle;border: 1px solid #000;font-size: 12px;margin-right:5px;}
+.station-list{font-size:14px; color: #333;padding-top:5px;position: relative;}
+.station-list-dashed-border{position: absolute;top:20px;width: 0px;border-left: 1px dashed #b8b8b8;bottom:18px;left:17.5px;}
+.station-list-item{padding: 5px 10px;}
+.station-list-item .item-note{display: none;}
+.station-list-item.active{background-color: #f7f7f7;}
+.station-list-item.active .item-note{display: block;}
+.list{/*margin-bottom: 0px;*/}
+.button.item-button,.button-share{padding: 0px 6px;
+    min-height: 20px;
+    line-height: 20px;margin:2px 0px;-webkit-border-radius: 2px;}
+.schedule-item .departAddress{display: inline-block;font-size: 14px;vertical-align: middle;}
+.icon-circle{width:6px;height: 6px;-webkit-border-radius: 50%;display:inline-block;position: absolute;top:50%;left:50%;margin-left:-3px;margin-top:-3px;z-index: 10;}
+.icon-circle.b-gray{background-color: #b8b8b8;}
+.icon-circle.b-white{background-color: #fff;}
+.lh24{line-height: 24px;}
+.lh30{line-height: 30px;}
+.b-balanced{background-color: #33cd5f}
+.b-assertive{background-color: #ef473a;}
+.b-positive{background-color: #387ef4;}
+.vm{vertical-align: middle;}
+.marker-self-adaption-assertive{border:1px solid #ef473a;color:#ef473a;}
+.marker-self-adaption-energized{border:1px solid #e6b500;color: #e6b500;}
+.marker-self-adaption-b-energized{background-color:#e6b500;color:#fff;border:1px solid #e6b500 }
+.marker-self-adaption-light{border:1px solid #fff;color:#fff;}
+.schedule-item .price{display: inline-block;font-size: 18px;vertical-align: middle;}
+.station-tip{background-color: #ffeacc;color:#ff9600;line-height: 26px;}
+.ticket-list-item{background-color: #ff4949;color:#fff;-webkit-border-radius: 5px;position: relative;}
+.ticket-list-item.disabled{background-color: #a6a5a5;color:#d0d0d0;}
+.ticket-list-item-dashed-line{border-bottom:1px dashed #cccccc;}
+.ticket-list-item .circle{width:10px;height: 10px;background-color: #f7f7f7;position: absolute;-webkit-border-radius: 50%;bottom: 58px;}
+.ticket-list-item .left-circle{left:-5px;}
+.ticket-list-item .right-circle{right:-5px;}
+.inline-block{display: inline-block}
+.ticket-list-item-time{height:46px;width:46px;background:url("../images/sprite.png") -29px -153px;background-size: 284px 496px;line-height: 50px;text-align: center;color:#ef473a;padding-left: 5px;display: inline-block;}
+.ticket-list-item.disabled .ticket-list-item-time{color: #a6a5a5;background-position: -29px -222px;}
+.ticket-list-item.disabled .b-white{background-color: #d0d0d0;}
+.ticket-list-item.disabled .marker-self-adaption-light{border-color: #bbbaba;color:#bbbaba;}
+.ticket-list-item.disabled .seal{display: block;}
+.ticket-list-item .seal{display: none;background: url("../images/sprite.png") -122px -80px;width: 90px; height: 75px;position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-16px;z-index: 10;background-size: 284px 496px;}
+/*车票详情*/
+.ticket-detail-month-status{width:56px; height:56px;font-weight:200;font-size:28px;line-height:55px;color:#fff;background:url("../images/sprite.png") -211px -24px;background-size: 284px 496px;margin:10px auto;}
+.ticket-detail.disabled .ticket-detail-month-status{background-position: -211px -95px;}
+.ticket-detail-month{width:54px; height:50px;font-weight:200;font-size:28px;line-height:55px;color:#fff;background:url("../images/sprite.png") -211px -172px;background-size: 284px 496px;margin:10px auto;position: absolute;right:10px;top:50%;margin-top:-10px;}
+.ticket-detail.disabled .ticket-detail-month{background-position: -211px -245px;}
+.ticket-detail .status-img{width:16px;height:16px;background:url("../images/sprite.png") -101px -181px;background-size: 284px 496px;display: inline-block;vertical-align: middle;}
+.ticket-detail.disabled .status-img{background-position: -101px -154px;}
+.ticket-detail-status{text-align: center}
+
+/**报名成功*/
+.sign-up-success{width:74px;height:74px;background:url("../images/sprite.png") -120px -278px;background-size: 284px 496px;margin:20px auto;}
+.tip-layer{position: fixed;top:0;bottom: 0;width: 100%;background-color: rgba(0,0,0,.5);z-index: 10;}
+.tip-layer .tip-cloud{background:url("../images/sprite.png") 0 -350px;background-size: 284px 496px;width: 270px;height: 145px;color:#000;margin:0px auto;padding-top: 75px;}
+.tip-layer .tip-cloud p{padding:0px;line-height: 24px;margin:0px;}
+.no-ticket-img img{width:100%;}
+.no-ticket-img{margin-top:-16px;display:none;}
+.no-ticket-img-text{font-size:16px;padding-top:40px;font-size:16px;color:#6f6f6f;text-align: center;}
+.show{display: block!important;}
+
+/*充值页面*/
+.recharge-button-wrap{}
+.recharge-button{border:1px solid #2c79fe;color:#2c79fe;text-align: center;font-size: 16px;height:42px;line-height: 42px;-webkit-border-radius: 3px;}
+.recharge-button.active{background-color: #2c79fe;color:#fff;}
+.flex-wrap-wrap{flex-wrap: wrap;}
+.agreement-checkbox{color:#ccc;-webkit-border-radius: 50%;background-color: #fff;width:16px ;font-size:10px;height:16px;text-align: center;line-height: 14px;font-weight: 100;border:1px solid #ddd;}
+.agreement-box{position: absolute;bottom:60px;left:15px;}
+.position-relative{position:relative;}
+.agreement-checkbox.active{color:#fff;background-color:#2c79fe;border:1px solid #f7f7f7;}
+/*包车申请界面*/
+/*关于tabs*/
+.selectedtabs.tabs-striped .tabs{
+    background-color: #fdfdfe;
+}
+.selectedtabs.tabs-top.tabs-striped .tab-item{
+    background-color: #fff;
+    border-top-style: solid;
+    border-top-color: #cecece;
+    border-left-style: solid;
+    border-left-color: #cecece;
+    border-right-style: solid;
+    border-right-color:#cecece;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+/*关于多选*/
+.checked .list{padding-top: 0;padding-bottom: 0;}
+.bus-service-top{padding-top: 58px;}
+.bus-icon{font-size: 1px;padding: 12px 23px}
+.bus-pane{position: relative;width: 50%;height: 50%;}
+.list-inset{margin: 0;}
+.tabs-top.tabs-striped .tab-item.tab-item-active, .tabs-top.tabs-striped .tab-item.active, .tabs-top.tabs-striped .tab-item.activated{
+    border-width: 2px 2px 0px 2px !important;
+    border-color: #33cc5f;
+    border-radius: 5px 5px 0 0;
+    background-color: #fff;
+}
+.tab-item{
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: #33cc5f;
+    border-radius: 5px 5px 0 0;
+
+}
+.tabs-striped .tabs{
+    border-bottom: none;
+    background-color: #f6f6f6;
+}
+.label-border{
+    border-top-style: none;
+
+}
+.label-rightleft-border{
+    border-left-color: #33cc5f;
+    border-right-color:#33cc5f ;
+    border-left-width: 2px;
+    border-right-width: 2px;
+}
+.label-bottom-border{
+    border-bottom-color: #33cc5f;
+    border-bottom-width: 2px;
+
+}
+.card .item:last-child, .list-inset .item:last-child, .padding > .list .item:last-child{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.tabs-top.tabs-striped .tab-item{
+    background-color: #fff;
+}
+.item-checkbox{
+    background-color: #f6f6f6;
+    border-style: none;
+}
+html{
+    background-color: #f6f6f6;
+}
+
+
+/*单个账户查询*/
+
+.validstyle{
+    display: inline-block;
+    position: absolute;
+    right: 15%;
+    height: 34px;
+    line-height: 34px;
+}
+.required-xin{
+    display: inline-block;
+    position: absolute;
+    height: 34px;
+    line-height: 34px;
+}
+/*动态按钮样式*/
+.status-button{
+    border-color: transparent;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    vertical-align: top;
+    text-align: center;
+    text-overflow: ellipsis
+}
+
+.status-1{
+    background-color: #767676;
+}
+.status-2{
+    background-color: red;
+}
+.status-3{
+    background-color: #f17e26;
+}
+.status-4{
+    background-color: red;
+}
+.status-5{
+    background-color: #34c75b;
+}
+.status-6{
+    background-color: #1f42f9;
+}
+
+.caseStatus-1{
+    background-color: #616161;
+}
+.caseStatus-2{
+    background-color: red;
+}
+.caseStatus-3{
+    background-color: #f17e26;
+}
+.caseStatus-4{
+    background-color: red;
+}
+.caseStatus-5{
+    background-color: #34c75b;
+}
+.caseStatus-6{
+    background-color: #1f42f9;
+}
+

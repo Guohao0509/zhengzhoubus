@@ -1,0 +1,132 @@
+<ui-view ng-controller="ScheduleOpenedController">
+    <!--待开通班次列表-->
+    <div class="bar bar-header bar-light">
+        <h1 class="title">已开通班次列表({{totalnum}})</h1>
+    </div>
+    <ion-content has-bouncing="true" class="b-gray has-header has-footer padding-top">
+        <ion-refresher class="gray"
+                       on-refresh="refresh()"
+                       pulling-text="下拉刷新……">
+        </ion-refresher>
+        <ul class="list mb0">
+            <li ng-show="scheduleList.length==0">
+                <div class="text-center">没有找到已开通的线路。</div>
+            </li>
+            <li  class="list-item b-white schedule-item border-top padding-vertical  padding-horizontal"
+                 ng-repeat="item in scheduleList">
+                <!--上下班-->
+                <div class="row row-no-padding" ng-show="item.linetype==0">
+                    <div class="col-66">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                <span class="f16 departTime pr5" ng-bind="item.departtime"></span>
+                                <div class="marker-self-adaption">出发</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-33">
+                        <div class="text-right lh30" ng-show="item.leftTickets>0">
+                            <button class="button button-small button-balanced item-button vm"  ng-click="goToScheduleDetail(item,2)">线路详情</button>
+                        </div>
+                        <div class="text-right lh30" ng-show="item.leftTickets<=0">
+                            <button class="button button-small button-balanced item-button vm" ng-click="goToScheduleDetail(item,1)">线路报名</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-no-padding" ng-show="item.linetype==0">
+                    <div class="col-60">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon icon-circle b-balanced"></i></div>
+                                <span class="departAddress" ng-bind="item.departaddr"></span>
+                            </div>
+                        </div>
+                        <div class="row-no-padding ">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon icon-circle b-assertive"></i></div>
+                                <span class="departAddress" ng-bind="item.arriveaddr"></span>
+                            </div>
+                        </div>
+                        <div class="row-no-padding ">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                <span class="f16 departTime pr5" ng-bind="item.backDeparttime"></span>
+                                <div class="marker-self-adaption">返回</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-40">
+                        <div class="lh30 text-right assertive">
+                            <div class="marker-self-adaption marker-self-adaption-assertive">单次</div>
+                            <span class="price"><span class="f14">￥</span>{{item.price | number:0}}</span>
+                        </div>
+                        <div class="lh30 text-right assertive">
+                            <div class="marker-self-adaption marker-self-adaption-b-energized">惠</div>
+                            <div class="marker-self-adaption marker-self-adaption-assertive">包月</div>
+                            <span class="price"><span class="f14">￥</span>{{item.monthprice | number:0}}</span>
+                        </div>
+                        <div class="text-right lh30 gray" ng-show="item.leftTickets>0">余 <span ng-bind="item.leftTickets"></span> 座</div>
+                        <div class="text-right lh30 gray" ng-show="item.leftTickets<=0">已售完</div>
+                    </div>
+                </div>
+                <!--上下班-结束-->
+                <!--摆渡车开始-->
+                <div class="row row-no-padding" ng-show="item.linetype==1">
+                    <div class="col-66">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                <span class="f16 departTime pr5" ng-bind="item.departtime"></span>
+                                <div class="marker-self-adaption">区间摆渡</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-33">
+                        <div class="text-right lh30">
+                            <button class="button button-small button-balanced item-button vm"  ng-click="goToScheduleDetail(item,3)">查看线路</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-no-padding" ng-show="item.linetype==1">
+                    <div class="col-60">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon icon-circle b-balanced"></i></div>
+                                <span class="departAddress" ng-bind="item.departaddr"></span>
+                            </div>
+                        </div>
+                        <div class="row-no-padding ">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon icon-circle b-assertive"></i></div>
+                                <span class="departAddress" ng-bind="item.arriveaddr"></span>
+                            </div>
+                        </div>
+                        <div class="row-no-padding ">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                <span class="f16 departTime pr5" ng-bind="item.backDeparttime"></span>
+                                <div class="marker-self-adaption">区间摆渡</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-40">
+                        <div class="lh30 text-right assertive">
+                            <div class="marker-self-adaption marker-self-adaption-assertive">次票</div>
+                            <span class="price"><span class="f14">￥</span>{{item.price | number:2}}</span>
+                        </div>
+                        <div class="lh30 text-right assertive">
+                           &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <!--摆渡车结束-->
+
+            </li>
+        </ul>
+        <button class="button button-middle button-block  button-light" ng-click="getMoreData()" ng-show="showMoreBtn">点击加载更多</button>
+    </ion-content>
+    <div class="bar bar-footer" ui-sref="create_route">
+        <button class="button button-block button-positive button-balanced">发起我的新线路</button>
+    </div>
+</ui-view>

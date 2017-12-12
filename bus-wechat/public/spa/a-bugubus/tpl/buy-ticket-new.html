@@ -1,0 +1,63 @@
+<div ng-controller="BuyTicketNewController">
+    <div class="bar bar-header bar-light">
+        <h1 class="title">已开通班次列表({{scheduleList.length}})</h1>
+    </div>
+    <ion-content scroll="false" class="b-gray">
+        <div style="height: 100%">
+            <ion-scroll class=" border-bottom" zooming="false" direction="y" style="position: absolute;top: 50px;bottom: 130px;left:0px;right:0px;">
+                <ion-refresher class="gray"
+                               on-refresh="refresh()"
+                               pulling-text="下拉刷新……">
+                </ion-refresher>
+                <ul class="list">
+                    <li ng-show="scheduleList.length==0">
+                        <div class="text-center">没有找到已开通的线路。</div>
+                    </li>
+                    <li  class="list-item b-white schedule-item row  border-top padding-top  padding-horizontal"
+                         ng-click="goToScheduleDetail(item)"
+                         ng-repeat="item in scheduleList">
+                        <div class="col-66">
+                            <div class="row">
+                                <div class="">
+                                    <div class="marker start-marker small">去</div>
+                                    <span class="f16 departTime" ng-bind="item.goBuslineSchedule.departtime"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div><i class="icon ion-ios-circle-outline balanced  f12 pr5"></i><span ng-bind="item.goBuslineSchedule.departaddr"></span></div>
+
+                            </div>
+                            <div class="row">
+                                <div><i class="icon ion-ios-circle-outline assertive f12 pr5"></i><span ng-bind="item.goBuslineSchedule.arriveaddr"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="">
+                                    <div class="marker stop-marker small">返</div>
+                                    <span class="f16 departTime" ng-bind="item.backBuslineSchedule.departtime"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-33 col-center">
+                            <div class="text-center assertive once-price f24 padding-vertical">￥{{item.backBuslineSchedule.price+item.goBuslineSchedule.price}}<span class="f12">/天</span></div>
+                            <div class="text-center gray">往返票</div>
+                        </div>
+                    </li>
+                </ul>
+            </ion-scroll>
+            <div class="row row-no-padding gray" style="position: absolute;bottom: 50px;left:0px;right:0px;">
+                <div class="col-33 text-center b-white border-right" ui-sref="create_route">
+                    <div class="padding-top"><i class="icon ion-ios-compose-outline f28"></i></div>
+                    <div class="padding-vertical">发起新线路</div>
+                </div>
+                <div class="col-33 text-center b-white border-right" ui-sref="schedule_will_open">
+                    <div class="padding-top"><i class="icon ion-ios-alarm-outline f28"></i></div>
+                    <div class="padding-vertical">待开通线路</div>
+                </div>
+                <div class="col-33 text-center b-white">
+                    <div class="padding-top"><i class="icon ion-ios-people-outline f28"></i></div>
+                    <div class="padding-vertical">商务包车</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</div>

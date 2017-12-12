@@ -1,0 +1,86 @@
+<ui-view ng-controller="bus_service_history" >
+
+    <ion-content has-bouncing="true" class="b-gray has-header has-footer padding-top">
+
+
+        <ion-refresher class="gray"
+                       on-refresh="refresh()"
+                       pulling-text="下拉刷新……">
+        </ion-refresher>
+        <ul class="list mb0">
+            <li ng-show="userallmess.length==0">
+                <div class="text-center">没有找到相关订单消息。</div>
+            </li>
+            <li ng-repeat="item  in userallmess"  class="list-item b-white schedule-item border-top padding-vertical  padding-horizontal">
+
+            <div   class=" row row-no-padding">
+                <div class="col-100">
+                    <div class="row-no-padding">
+                        <div class="lh30">
+                            <div class="marker small"><i class="icon icon-circle b-balanced"></i></div>
+                            <span class="f16  pr5" >{{item.startLocation}}</span>
+                        </div>
+                    </div>
+
+                    <div class="row-no-padding">
+                        <div class="lh30">
+                            <div class="marker small"><i class="icon icon-circle b-assertive"></i></div>
+                            <span class="f16  pr5" >{{item.endLocation}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div   class=" row row-no-padding">
+                <div class="col-66">
+                    <div class="row-no-padding">
+                        <div class="lh30">
+                            <div class="marker small"><i class="icon icon-circle b-positive"></i></div>
+                            <span class="f16 departTime pr5" >出发时间:{{item.charterStartTime | date:"yyyy-MM-dd HH:mm"}}</span>
+                        </div>
+                        <div class="marker small"></div>
+                            <span class="f16 departTime pr5" >到达时间:{{item.charterEndTime| date:"yyyy-MM-dd HH:mm"}}</span>
+                    </div>
+                </div>
+                <div class="col-33">
+                    <div class="lh30 text-right assertive" style="text-align: center;">
+                        <span class="price"><span class="f14">￥</span>{{item.totalfee}}元</span>
+                    </div>
+                </div>
+            </div>
+
+            <div   class=" row row-no-padding">
+                <div class="col-66">
+                    <div class="row-no-padding">
+                        <div class="lh30">
+                            <div class="marker small"></div>
+                            <span class="f16 departTime pr5" >乘车人数:{{item.charterCount}}人</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div   class=" row row-no-padding">
+                <div class="col-66">
+                    <div class="row-no-padding">
+                        <div class="lh30">
+                            <div class="marker small"></div>
+                            <span class="f16 departTime pr5" >类型:{{queryusertype[item.charterType]}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-33">
+                    <div class="text-right lh30" >
+                        <button style="width: 100%;" ng-click="bus_service_all(item)" class="caseStatus-{{item.caseStatus}} status-button" >{{queryuserstaus[item.caseStatus]}}</button>
+                    </div>
+                </div>
+            </div>
+            </li>
+        </ul>
+
+        <button class="button button-middle button-block  button-light" ng-click="getMoreData()" ng-show="showMoreBtn">点击加载更多</button>
+    </ion-content>
+
+
+</ui-view>

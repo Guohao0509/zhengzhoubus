@@ -1,0 +1,34 @@
+<div class="bar bar-header bar-light">
+    <h1 class="title">畅巴储值卡充值</h1>
+</div>
+<ion-pane ng-controller="TicketRecharge2Controller">
+    <ion-content scroll="false" class="has-header pt18 b-gray">
+        <div class="padding-top">
+            <ion-list>
+                <ion-radio ng-model="orderInfo.payType"  ng-value="'0'"><img src="images/wxpay.jpg" style="width: 26px;vertical-align: middle;margin-right:5px;">微信支付</ion-radio>
+            </ion-list>
+        </div>
+        <div class="row row-no-padding padding flex-wrap-wrap">
+            <div class="col-33" ng-repeat="item in rechargeCouponList">
+                <div class="recharge-button-wrap padding-horizontal padding-vertical">
+                    <div class="recharge-button" ng-click="changeCoupon(item,$index)" ng-class="{true:'active'}[item.active]">{{item.paymoney}} 元</div>
+                </div>
+            </div>
+        </div>
+        <div class="padding gray">
+            <div class="padding-left">
+                <p>当前优惠</p>
+                <p>1.<span class="assertive"> 充100，赠送50元</span></p>
+                <p>2.<span class="assertive"> 充200，赠送100元</span></p>
+                <p>3. 本活动截止到 2016年12月31日</p>
+            </div>
+        </div>
+        <div class="agreement-box gray" ng-click="agreeStatusChange()">
+            <div class="agreement-checkbox inline-block vm" ng-class="{true:'active'}[agreeStatus]"><i class="icon ion-checkmark-round"></i></div>
+            <div class="inline-block vm">同意 《<a href="http://chargebus.forku.cn/page/pay_agreement.html">畅巴用户购票协议</a>》</div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-block button-positive button-balanced" ng-disabled="!agreeStatus" ng-click="recharge()">确定支付 {{orderInfo.payMoney | number:2}} 元</button>
+    </div>
+</ion-pane>

@@ -1,0 +1,15 @@
+
+<div data-ng-include=" 'tpl/blocks/header.music.html' " class="app-header navbar">
+</div>
+<div data-ng-include=" 'tpl/blocks/aside.music.html' " class="app-aside hidden-xs {{app.settings.asideColor}}">
+</div>
+<div class="app-content">
+<div ui-butterbar></div>
+<a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside" ></a>
+<div class="app-content-body fade-in-up" ui-view>
+</div>
+</div>
+<div class="app-footer app-footer-fixed" data-ng-include=" 'tpl/music.player.html' ">
+</div>
+<div data-ng-include=" 'tpl/blocks/settings.html' " class="settings panel panel-default">
+</div>

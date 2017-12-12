@@ -1,0 +1,21 @@
+<ui-view ng-controller="TicketStoreController">
+    <ion-content has-bouncing="true" class="b-gray pt18">
+        <div class="padding-vertical f24 text-center">储值卡</div>
+        <div class="padding-vertical balanced text-center">
+            <span class="f24">{{cardInfo.balance | number:2}}</span> 元
+        </div>
+        <div class="padding-vertical text-center">
+           <canvas barcode ng-model="cardInfo.barcode"></canvas>
+           <!-- <div class="padding-vertical">
+                <div ng-show="cardInfo.refreshStatus">正在刷新条形码</div>
+                <div ng-show="!cardInfo.refreshStatus"><span class="assertive" ng-bind="cardInfo.refreshTime"></span>秒后刷新条形码</div>
+            </div>-->
+        </div>
+        <div class="padding-horizontal padding-horizontal gray">
+           <p class="text-center f18 balanced">上车时请出示此条形码扫描</p>
+        </div>
+        <div class="padding-horizontal padding-vertical">
+            <button ui-sref="ticket.recharge" class="button button-block button-middle button-positive button-balanced">充值</button>
+        </div>
+    </ion-content>
+</ui-view>

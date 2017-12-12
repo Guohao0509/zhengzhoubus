@@ -1,0 +1,233 @@
+<!--展示单个用户详情信息-->
+<ui-view  ng-controller="bus_service_all" >
+
+    <ion-content scroll="true" class="b-gray  has-footer">
+        <div class="bar bar-header bar-light">
+            <h1 class="title">详情信息</h1>
+        </div>
+        <ul  class=" has-header has-footer padding-top ">
+            <li style="margin-top: 10%;" class="list-item b-white schedule-item border-top padding-vertical  padding-horizontal">
+                <div   class=" row row-no-padding">
+                    <div class="col-40">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"></div>
+                                <span class="f16  pr5" >昵称:</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-60">
+                        <div class=" lh30">
+                            <span class="f16  pr5" >{{usermess.commName}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div  class=" row row-no-padding">
+                    <div class="col-40">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"></div>
+                                <span class="f16  pr5" >电话:</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-60">
+                        <div class=" lh30">
+                            <span class="f16  pr5" >{{usermess.commMobile}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div   class=" row row-no-padding">
+                    <div class="col-40">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon icon-circle b-balanced"></i></div>
+                                <span class="f16  pr5" >出发地:</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-60">
+                        <div class=" lh30">
+                            <span class="f16  pr5" >{{usermess.startLocation}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div   class=" row row-no-padding">
+                    <div class="col-40">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"><i class="icon icon-circle b-assertive"></i></div>
+                                <span class="f16  pr5" >目的地:</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-60">
+                        <div class=" lh30">
+                            <span class="f16  pr5" >{{usermess.endLocation}}</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                        <div   class=" row row-no-padding">
+                            <div class="col-40">
+                                <div class="row-no-padding">
+                                    <div class="lh30">
+                                        <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                        <span class="f16  pr5" >出发时间:</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-60">
+                                <div class=" lh30">
+                                    <span class="f16  pr5" >{{usermess.charterStartTime | date:"yyyy-MM-dd HH:mm"}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div   class=" row row-no-padding">
+                            <div class="col-40">
+                                <div class="row-no-padding">
+                                    <div class="lh30">
+                                        <div class="marker small"><i class="icon ion-ios-clock-outline positive f18"></i></div>
+                                        <span class="f16  pr5" >到达时间:</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-60">
+                                <div class=" lh30">
+
+                                    <span class="f16  pr5" >{{usermess.charterEndTime | date:"yyyy-MM-dd HH:mm"}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                <div   class=" row row-no-padding">
+                    <div class="col-40">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"></div>
+                                <span class="f16  pr5" >乘车人数:</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-60">
+                        <div class=" lh30">
+                            <span class="f16  pr5" >{{usermess.charterCount}}人</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div   class=" row row-no-padding">
+                    <div class="col-40">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"></div>
+                                <span class="f16  pr5" >包车类型:</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-60">
+                        <div class=" lh30">
+                            <span class="f16  pr5" >{{charterTypestaus[usermess.charterType]}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div   class=" row row-no-padding">
+                    <div class="col-40">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"></div>
+                                <span class="f16  pr5" >是否代驾:</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-60">
+                        <div class=" lh30">
+
+                            <span class="f16  pr5" >{{needinfostaus[usermess.needInfo]}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div   class=" row row-no-padding">
+                    <div class="col-40">
+                        <div class="row-no-padding">
+                            <div class="lh30">
+                                <div class="marker small"></div>
+                                <span class="f16  pr5" >备注:</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-60">
+                        <div class=" lh30">
+                            <span class="price" >{{usermess.reqInfo}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div  class=" row row-no-padding">-->
+                    <!--<div class="col-40">-->
+                        <!--<div  class="row-no-padding">-->
+                            <!--<div class="lh30">-->
+                                <!--<div class="marker small"></div>-->
+                                <!--<span class="f16  pr5" >包车类型:{{charterTypestaus[usermess.charterType]}}</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="row-no-padding">-->
+                            <!--<div class="lh30">-->
+                                <!--<div class="marker small"></div>-->
+                                <!--<span class="f16  pr5" >是否需要司机:{{needinfostaus[usermess.needInfo]}}</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="row-no-padding">-->
+                            <!--<div class="lh30">-->
+                                <!--<div class="marker small"></div>-->
+                                <!--<span class="f16  pr5" >备注:{{usermess.reqInfo}}</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="row-no-padding">-->
+                            <!--<div class="lh30">-->
+                                <!--<div class="marker small"></div>-->
+                                <!--<a ui-sref="bus_href_success"  style="color: #f17e26;text-decoration:none;"><i style="color: #f17e26;" class="ion-ios-information-outline"></i><span style="color: #a9a9a9;">用户协议</span></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+            </li>
+            <li style="text-align: center;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #cbcbcb;" class="list-item b-white schedule-item  padding-vertical  padding-horizontal">
+               <i class=" ion-ios-telephone balanced"></i>
+                <a href="tel:0371-55910662" class="f16  pr5" style="color: #919191;text-decoration:none;">客服:0371-55910662</a>
+            </li>
+
+        </ul>
+    </ion-content>
+
+    <div class="bar bar-footer">
+        <button ng-click="pay()"  class="status-{{usermess.caseStatus}}  button button-block status-button  ">
+            {{usercaseStatus[usermess.caseStatus]}}
+        </button>
+    </div>
+
+</ui-view>

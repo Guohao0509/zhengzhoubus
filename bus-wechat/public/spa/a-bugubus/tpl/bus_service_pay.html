@@ -1,0 +1,15 @@
+<ui-view ng-controller="charterpayController">
+    <ion-content has-bouncing="true" class="b-gray pt18" >
+        <div class="padding-vertical f24 text-center">需消费金额</div>
+        <div class="padding-vertical balanced text-center">
+            <span class="f24">{{totalfee | number: 2}}</span> 元
+        </div>
+
+        <div class="padding-horizontal padding-horizontal gray">
+            <p class="text-center f18 balanced">请确认金额是否正确</p>
+        </div>
+        <div class="padding-horizontal padding-vertical">
+            <button ng-click="nextpay()" class="button button-block button-middle button-positive button-balanced">确认</button>
+        </div>
+    </ion-content>
+</ui-view>
